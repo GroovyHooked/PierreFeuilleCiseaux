@@ -1,3 +1,4 @@
+
 const bouton1 = document.getElementById("pierre");
 const bouton2 = document.getElementById("feuille");
 const bouton3 = document.getElementById("ciseaux");
@@ -9,6 +10,7 @@ let partie = 0;
 let affichage1 = document.getElementById("partie");
 let affichage2 = document.getElementById("result");
 let affichage3 = document.getElementById("partie2");
+let affichage4 = document.getElementById("resIA");
 
 function partiePFC() {
 
@@ -16,7 +18,14 @@ function partiePFC() {
         return Math.floor(Math.random() * Math.floor(max));
     }
 
-    choixIA = getRandomInt(3);
+    let choixIA = getRandomInt(3);
+    if (choixIA === 0){
+        affichage4.innerHTML = "Machine joue pierre";
+    } else if (choixIA === 1){
+        affichage4.innerHTML = "Machine joue feuille";
+    } else {
+        affichage4.innerHTML = "Machine joue ciseaux";
+    }
 
     let choix;
     if (this.name === "pierre") {
@@ -50,4 +59,4 @@ function partiePFC() {
 
 bouton1.addEventListener("click", partiePFC);
 bouton2.addEventListener("click", partiePFC);
-bouton3.addEventListe
+bouton3.addEventListener("click", partiePFC);
